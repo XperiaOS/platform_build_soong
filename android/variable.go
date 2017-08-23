@@ -20,6 +20,8 @@ import (
 	"runtime"
 	"strings"
 
+	"xperia/soong/android"
+
 	"github.com/google/blueprint/proptools"
 )
 
@@ -122,6 +124,9 @@ type variableProperties struct {
 			Static_libs  []string
 			Srcs         []string
 		}
+
+		// include Xperia variables
+		Xperia android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -257,6 +262,10 @@ type productVariables struct {
 	Exclude_draft_ndk_apis *bool `json:",omitempty"`
 
 	FlattenApex *bool `json:",omitempty"`
+
+	// include Xperia variables
+	Xperia android.ProductVariables
+
 }
 
 func boolPtr(v bool) *bool {
